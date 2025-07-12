@@ -1,0 +1,9 @@
+/* Styles for the Home tab */
+#home {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+#home h2 {
+    color: #333;
+}

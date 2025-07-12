@@ -1,0 +1,35 @@
+/* Styles for the Drag & Drop tab */
+#drag-drop {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.drop-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.drop-area.hover {
+    background-color: #e8e8e8;
+}
+
+.file-list-container {
+    margin-top: 20px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.file-item {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.file-item:hover {
+    background-color: #dcdcdc;
+}
