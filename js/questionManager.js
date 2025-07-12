@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="question-tools">
                 <i class="fas fa-trash delete-question" title="Delete question"></i>
                 <i class="fas fa-image" title="Add image"></i>
-                <i class="fas fa-function" title="Add equation"></i>
+                <i class="fas fa-function" title="Add equation">+</i>
                 <i class="fas fa-table" title="Add table"></i>
             </div>
         `;
