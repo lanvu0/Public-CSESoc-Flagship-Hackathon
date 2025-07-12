@@ -3,58 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Printable Worksheet Designer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../editor.css">
-    <link rel="stylesheet" href="designer.css">
+    <link rel="stylesheet" href="designer/printable.css">
+    <title>Math Worksheet Designer</title>
 </head>
 <body>
-    <div class="designer-container">
-        <div class="design-area">
-            <!-- Template Selection Sidebar -->
-            <div class="template-sidebar">
-                <h3><i class="fas fa-layer-group"></i> Templates</h3>
-                <div class="template-thumbnails">
-                    <div class="template active" data-template="exam">
-                        <div class="template-preview exam-template">
-                            <div class="header-space"></div>
-                            <div class="question-area"></div>
-                        </div>
-                        <span>Exam Format</span>
-                    </div>
-                    <div class="template" data-template="naidoc">
-                        <div class="template-preview naidoc-template"></div>
-                        <span>NAIDOC Week</span>
-                    </div>
-                    <div class="template" data-template="future">
-                        <div class="template-preview future-template"></div>
-                        <span>Shared Future</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Canvas Area -->
-            <div class="worksheet-canvas">
-                <div class="canvas-container printable" id="worksheet-canvas">
-                    <div class="exam-header">
-                        <h2>Mathematics Worksheet</h2>
-                        <div class="student-info">
-                            <span>Name: ___________________</span>
-                            <span>Date: ___________________</span>
-                        </div>
-                    </div>
-                    <div class="questions-container" id="questions-container">
-                        <!-- Questions will be inserted here -->
-                    </div>
-                </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Templates</h2>
+        <ul class="templates-list">
+            <li class="active" data-template="basic">
+                <i>📝</i> Basic Worksheet
+            </li>
+            <li data-template="exam">
+                <i>📋</i> Exam Format
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="worksheet-header">
+            <div class="worksheet-title">Math Worksheet Designer</div>
+            <div class="actions">
+                <button class="btn btn-outline" id="add-problem">
+                    <i>+</i> Add Problem
+                </button>
+                <button class="btn btn-primary" id="print-btn">
+                    <i>🖨️</i> Print Worksheet
+                </button>
             </div>
         </div>
-
-        <button class="export-btn">
-            <i class="fas fa-print"></i> Export Printable Worksheet
-        </button>
+        
+        <div class="worksheet" id="worksheet">
+            <h1 contenteditable="true" class="editable">Mathematics Worksheet</h1>
+            
+            <div class="worksheet-header-info">
+                <div>Name: <span contenteditable="true" class="editable">______</span></div>
+                <div>Date: <span contenteditable="true" class="editable">______</span></div>
+            </div>
+            
+            <div class="problem" id="problem-1">
+                <div>
+                    <span class="problem-number">1.</span>
+                    <span contenteditable="true" class="editable">Solve for 2 x 3 = 15</span>
+                </div>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="problem" id="problem-2">
+                <div>
+                    <span class="problem-number">2.</span>
+                    <span contenteditable="true" class="editable">Calculate the area of a circle with radius 5cm</span>
+                </div>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="problem" id="problem-3">
+                <div>
+                    <span class="problem-number">3.</span>
+                    <span contenteditable="true" class="editable">Simplify the expression: 36 = 49 - 26</span>
+                </div>
+                <div class="answer-space"></div>
+            </div>
+            
+            <div class="divider" id="divider"></div>
+            
+            <div class="exam-section" id="exam-section">
+                <h2>Exam Format</h2>
+                <p contenteditable="true" class="editable">MASOC Prints</p>
+                <p contenteditable="true" class="editable">Share it Away</p>
+            </div>
+        </div>
     </div>
 
-    <script src="designer.js"></script>
+    <script>
+    </script>
 </body>
 </html>
