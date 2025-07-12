@@ -1,0 +1,249 @@
+:root {
+    --primary: #3f51b5;
+    --primary-dark: #303f9f;
+    --primary-light: #c5cae9;
+    --light: #f5f5f5;
+    --dark: #212121;
+    --gray: #757575;
+    --sidebar-bg: #3f51b5;
+    --sidebar-text: #ecf0f1;
+    --main-bg: #f5f7fa;
+    --worksheet-bg: #ffffff;
+    --worksheet-border: #d1d8e0;
+    --primary: #3f51b5;
+    --accent: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--main-bg);
+    color: #333;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.sidebar h2 {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.templates-list {
+    list-style: none;
+}
+
+.templates-list li {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.templates-list li:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.templates-list li.active {
+    background-color: var(--primary);
+    font-weight: bold;
+}
+
+.templates-list li i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.worksheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.worksheet-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--sidebar-bg);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Worksheet Styles */
+.worksheet {
+    background-color: var(--worksheet-bg);
+    border: 1px solid var(--worksheet-border);
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.worksheet h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: var(--sidebar-bg);
+}
+
+.worksheet h2 {
+    font-size: 24px;
+    margin: 30px 0 15px;
+    color: var(--sidebar-bg);
+}
+
+.worksheet-header-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--worksheet-border);
+}
+
+.problem {
+    margin-bottom: 40px;
+}
+
+.problem-number {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* Blank answer space for students */
+.answer-space {
+    height: 100px;
+    margin-top: 10px;
+    border: 1px dashed #d1d8e0;
+    border-radius: 4px;
+    background-color: rgba(245, 247, 250, 0.5);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--worksheet-border);
+    margin: 40px 0;
+}
+
+.exam-section {
+    display: none; /* Hidden by default */
+}
+
+/* Editable Content */
+.editable {
+    border-bottom: 1px dashed #95a5a6;
+    padding: 2px 4px;
+    min-width: 50px;
+    display: inline-block;
+}
+
+.editable:focus {
+    outline: none;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-bottom: 1px solid var(--primary);
+}
+
+/* Responsive Design */
+@media print {
+    .sidebar, .worksheet-header, .btn {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 0;
+    }
+    
+    .worksheet {
+        box-shadow: none;
+        border: none;
+        padding: 20px;
+    }
+    
+    /* Remove dashed borders for print */
+    .answer-space {
+        border: none;
+        background-color: transparent;
+        height: 120px;
+    }
+    
+    .editable {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+}
