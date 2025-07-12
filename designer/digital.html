@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Worksheet Editor</title>
+    <link rel="stylesheet" href="digital.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h2>Digital Worksheet Editor</h2>
+            <h3>Tools</h3>
+            <div class="sidebar-section">
+                <button class="sidebar-btn" draggable="true" data-type="question">
+                    <span>➕</span> New Question
+                </button>
+                <button class="sidebar-btn" draggable="true" data-type="image">
+                    <span>🖼️</span> Add Image
+                </button>
+                <button class="sidebar-btn" draggable="true" data-type="geogebra">
+                    <span>📐</span> GeoGebra Applet
+                </button>
+            </div>
+        </aside>
+
+        <main class="worksheet-area">
+            <div class="worksheet" id="worksheet">
+                <!-- Questions will be added here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="digital.js"></script>
+</body>
+</html>
