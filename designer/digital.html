@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Worksheet Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../editor.css">
+    <link rel="stylesheet" href="designer.css">
+</head>
+<body>
+    <div class="designer-container">
+        <div class="design-area">
+            <!-- Template Selection Sidebar -->
+            <div class="template-sidebar">
+                <h3><i class="fas fa-layer-group"></i> Templates</h3>
+                <div class="template-thumbnails">
+                    <div class="template active" data-template="exam">
+                        <div class="template-preview exam-template">
+                            <div class="header-space"></div>
+                            <div class="question-area"></div>
+                        </div>
+                        <span>Exam Format</span>
+                    </div>
+                    <div class="template" data-template="birthday">
+                        <div class="template-preview birthday-template"></div>
+                        <span>Birthday</span>
+                    </div>
+                    <div class="template" data-template="green">
+                        <div class="template-preview green-template"></div>
+                        <span>Green</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Canvas Area -->
+            <div class="worksheet-canvas">
+                <div class="canvas-container" id="worksheet-canvas">
+                    <div class="exam-header">
+                        <h2>Mathematics Examination</h2>
+                        <div class="exam-info">
+                            <span>Time: 60 minutes</span>
+                            <span>Total Marks: 50</span>
+                        </div>
+                    </div>
+                    <div class="questions-container" id="questions-container">
+                        <!-- Questions will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="export-btn">
+            <i class="fas fa-download"></i> Export Digital Worksheet
+        </button>
+    </div>
+
+    <script src="designer.js"></script>
+</body>
+</html>
