@@ -9,64 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
 </head>
 <body>
-    <!-- Sidebar (matches editor.html exactly) -->
-    <div class="side-tab">
-        <div class="tab-header">
-            <h1><i class="fas fa-chalkboard-teacher"></i> EduCreate</h1>
-            <p class="tagline">Express the creative classroom of your mind</p>
-        </div>
-        
-        <div class="creation-tools">
-            <div class="tool-section">
-                <h3><i class="fas fa-lightbulb"></i> Content Inspiration</h3>
-                <button class="tool-btn" id="aiQuestionBtn">
-                    <i class="fas fa-robot"></i> Generate from Syllabus
-                </button>
-                <button class="tool-btn" id="docImportBtn" onclick="window.location.href='import_materials/import.html'">
-                    <i class="fas fa-file-import"></i> Import Materials
-                </button>
-            </div>
-            
-            <div class="tool-section">
-                <h3><i class="fas fa-tools"></i> Creation Tools</h3>
-                <button class="tool-btn" id="worksheetBtn" onclick="window.location.href='index.html'">
-                    <i class="fas fa-file-alt"></i> Worksheet
-                </button>
-                <button class="tool-btn" id="quizBtn">
-                    <i class="fas fa-question-circle"></i> Interactive Quiz
-                </button>
-                <button class="tool-btn" id="diagramBtn">
-                    <i class="fas fa-project-diagram"></i> Diagram
-                </button>
-            </div>
-            
-            <div class="tool-section">
-                <h3><i class="fas fa-cog"></i> Formatting</h3>
-                <div class="format-options">
-                    <button class="format-btn" data-style="formal">
-                        <i class="fas fa-graduation-cap"></i> Formal
-                    </button>
-                    <button class="format-btn" data-style="casual">
-                        <i class="fas fa-smile"></i> Student-Friendly
-                    </button>
-                    <button class="format-btn" data-style="latex">
-                        <i class="fas fa-square-root-alt"></i> LaTeX
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="ai-assistant">
-            <h3><i class="fas fa-magic"></i> AI Teaching Assistant</h3>
-            <div class="ai-prompt">
-                <input type="text" placeholder="Describe your teaching need...">
-                <button class="ai-help-btn">
-                    <i class="fas fa-wand-magic-sparkles"></i> Help Me Create
-                </button>
-            </div>
-        </div>
-    </div>
-    
     <!-- Main Content Area -->
     <div class="main-content">
         <div class="content-header">
