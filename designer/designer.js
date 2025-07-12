@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="answer-input">
                     Answer: ${isDigital ? 
                         `<input type="text" class="digital-answer" placeholder="Type your answer">` : 
-                        `<span class="printable-answer">_______________</span>`}
+                        `<span class="printable-answer"></span>`}
                 </div>
             `;
             questionsContainer.appendChild(questionEl);
