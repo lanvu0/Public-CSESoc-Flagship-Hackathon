@@ -313,7 +313,7 @@ Example VALID response:
 
     function getGlobalSettingsHTML() {
         const isPrintView = canvasArea.classList.contains('view-print');
-        return `<div class="inspector-section"><h4><i class="fas fa-palette"></i> Document Style</h4><div class="prop-group"><label>View Mode</label><div class="toggle-group"><button class="view-toggle-btn ${!isPrintView ? 'active' : ''}" data-view="digital">Digital</button><button class="view-toggle-btn ${isPrintView ? 'active' : ''}" data-view="print">Printable</button></div></div></div>`;
+        return ' '
     }
 
     function addGlobalSettingsListeners() {
@@ -331,5 +331,5 @@ Example VALID response:
 
     // Initial State
     selectElement(null);
-    createElement('text', { title: 'Welcome to Synapse!', body: 'Drag new elements from the left, or drag existing elements to re-order them!'});
+    createElement('text', { title: 'Welcome to EduCreate!', body: 'Drag new elements from the left, or drag existing elements to re-order them!'});
 });
