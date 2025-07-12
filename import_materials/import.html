@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import Materials | EduCreate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="import.css">
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+</head>
+<body>
+    <!-- Sidebar (matches editor.html exactly) -->
+    <div class="side-tab">
+        <div class="tab-header">
+            <h1><i class="fas fa-chalkboard-teacher"></i> EduCreate</h1>
+            <p class="tagline">Express the creative classroom of your mind</p>
+        </div>
+        
+        <div class="creation-tools">
+            <div class="tool-section">
+                <h3><i class="fas fa-lightbulb"></i> Content Inspiration</h3>
+                <button class="tool-btn" id="aiQuestionBtn">
+                    <i class="fas fa-robot"></i> Generate from Syllabus
+                </button>
+                <button class="tool-btn" id="docImportBtn" onclick="window.location.href='import.html'">
+                    <i class="fas fa-file-import"></i> Import Materials
+                </button>
+            </div>
+            
+            <div class="tool-section">
+                <h3><i class="fas fa-tools"></i> Creation Tools</h3>
+                <button class="tool-btn" id="worksheetBtn" onclick="window.location.href='editor.html'">
+                    <i class="fas fa-file-alt"></i> Worksheet
+                </button>
+                <button class="tool-btn" id="quizBtn">
+                    <i class="fas fa-question-circle"></i> Interactive Quiz
+                </button>
+                <button class="tool-btn" id="diagramBtn">
+                    <i class="fas fa-project-diagram"></i> Diagram
+                </button>
+            </div>
+            
+            <div class="tool-section">
+                <h3><i class="fas fa-cog"></i> Formatting</h3>
+                <div class="format-options">
+                    <button class="format-btn" data-style="formal">
+                        <i class="fas fa-graduation-cap"></i> Formal
+                    </button>
+                    <button class="format-btn" data-style="casual">
+                        <i class="fas fa-smile"></i> Student-Friendly
+                    </button>
+                    <button class="format-btn" data-style="latex">
+                        <i class="fas fa-square-root-alt"></i> LaTeX
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ai-assistant">
+            <h3><i class="fas fa-magic"></i> AI Teaching Assistant</h3>
+            <div class="ai-prompt">
+                <input type="text" placeholder="Describe your teaching need...">
+                <button class="ai-help-btn">
+                    <i class="fas fa-wand-magic-sparkles"></i> Help Me Create
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="content-header">
+            <div class="breadcrumbs">
+                <span>My Classroom</span> > <span>Import Materials</span>
+            </div>
+            <div class="content-actions">
+                <button class="action-btn preview-btn">
+                    <i class="fas fa-eye"></i> Preview
+                </button>
+                <button class="action-btn export-btn">
+                    <i class="fas fa-download"></i> Export
+                </button>
+                <button class="action-btn share-btn">
+                    <i class="fas fa-share-alt"></i> Share
+                </button>
+            </div>
+        </div>
+        
+        <div class="workspace import-workspace">
+            <!-- Empty top 70% space -->
+            <div class="drop-zone-container">
+                <div class="drop-zone">
+                    <i class="fas fa-file-upload fa-3x"></i>
+                    <h2>Drag & Drop Image Here</h2>
+                    <p>or click to browse your computer</p>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                    <button class="upload-btn" onclick="document.getElementById('imageUpload').click()">
+                        <i class="fas fa-folder-open"></i> Select Image
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Bottom 30% - Upload Options -->
+            <div class="upload-options-area">
+                <div class="upload-options-toolbar">
+                    <h3><i class="fas fa-cloud-upload-alt"></i> Upload Options</h3>
+                    <div class="import-options">
+                        <button class="tool-btn">
+                            <i class="fas fa-file-word"></i> Word Document
+                        </button>
+                        <button class="tool-btn">
+                            <i class="fas fa-file-pdf"></i> PDF File
+                        </button>
+                        <button class="tool-btn">
+                            <i class="fas fa-file-image"></i> Image Files
+                        </button>
+                        <button class="tool-btn">
+                            <i class="fas fa-link"></i> From URL
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="conversion-controls">
+                    <div class="text-input-section">
+                        <h3><i class="fas fa-font"></i> Extracted Text</h3>
+                        <textarea id="extractedText" class="text-output" placeholder="Extracted text will appear here..."></textarea>
+                        <div class="text-actions">
+                            <button id="copyTextBtn" class="action-btn">
+                                <i class="fas fa-copy"></i> Copy Text
+                            </button>
+                            <button id="clearTextBtn" class="action-btn">
+                                <i class="fas fa-trash"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                    <button class="convert-btn" id="convertBtn">
+                        <i class="fas fa-magic"></i> Convert Image to Text
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="editor.js"></script>
+    <script src="import.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Clear all active states first
+    document.querySelectorAll('.tool-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Activate the Import Materials button
+    document.getElementById('docImportBtn').classList.add('active');
+    
+    // Set up navigation for Worksheet button
+    document.getElementById('worksheetBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'editor.html';
+    });
+});
+</script>
+</script>
+</body>
+</html>
