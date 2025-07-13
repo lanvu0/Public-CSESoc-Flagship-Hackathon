@@ -3,79 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCreate - Worksheet Designer</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- Modern Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- PDF EXPORT LIBRARIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="printable.css">
-    <title>Math Worksheet Designer</title>
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>Templates</h2>
-        <ul class="templates-list">
-            <li class="active" data-template="basic">
-                <i>📝</i> Basic Worksheet
-            </li>
-            <li data-template="exam">
-                <i>📋</i> Exam Format
-            </li>
-        </ul>
-    </div>
-    
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="worksheet-header">
-            <div class="worksheet-title">Math Worksheet Designer</div>
-            <div class="actions">
-                <button class="btn btn-outline" id="add-problem">
-                    <i>+</i> Add Problem
-                </button>
-                <button class="btn btn-primary" id="print-btn">
-                    <i>🖨️</i> Print Worksheet
-                </button>
-            </div>
+    <!-- Sidebar (No Changes) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a class="back-btn" href="../transition.html">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Menu</span>
+            </a>
+            <a class="logo" href="../index.html">
+                <i class="fas fa-pencil-alt"></i>
+                <h1>EduCreate</h1>
+            </a>
         </div>
         
-        <div class="worksheet" id="worksheet">
-            <h1 contenteditable="true" class="editable">Mathematics Worksheet</h1>
-            
-            <div class="worksheet-header-info">
-                <div>Name: <span contenteditable="true" class="editable"></span></div>
-                <div>Date: <span contenteditable="true" class="editable"></span></div>
-            </div>
-            
-            <div class="problem" id="problem-1">
-                <div>
-                    <span class="problem-number">1.</span>
-                    <span contenteditable="true" class="editable">Solve for x: 3x + 5 = 20</span>
+        <div class="tool-section">
+            <h3><i class="fas fa-swatchbook"></i> Templates</h3>
+            <ul class="templates-list">
+                <li class="active" data-template="basic">
+                    <i class="fas fa-file-alt"></i> Basic Worksheet
+                </li>
+                <li data-template="exam">
+                    <i class="fas fa-clipboard-list"></i> Exam Format
+                </li>
+            </ul>
+        </div>
+    </aside>
+    
+    <!-- Main Content (Button Updated) -->
+    <main class="main-content">
+        <header class="page-header">
+            <h2 class="page-title">Worksheet Designer</h2>
+            <div class="actions">
+                <div class="toggle-switch">
+                    <button id="view-worksheet-btn" class="toggle-btn active">Worksheet</button>
+                    <button id="view-answer-key-btn" class="toggle-btn">Answer Key</button>
                 </div>
-                <div class="answer-space"></div>
+                <!-- UPDATED BUTTON -->
+                <button class="btn btn-primary" id="export-pdf-btn">
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </button>
             </div>
-            
-            <div class="problem" id="problem-2">
-                <div>
-                    <span class="problem-number">2.</span>
-                    <span contenteditable="true" class="editable">Calculate the area of a circle with radius 5cm</span>
+        </header>
+        
+        <div class="worksheet-container">
+            <div class="worksheet" id="worksheet">
+                <!-- Rest of the worksheet content is unchanged -->
+                <h1 contenteditable="true" class="editable" data-placeholder="Worksheet Title">Mathematics Worksheet</h1>
+                <div class="worksheet-meta">
+                    <div class="meta-field">
+                        <label>Name:</label>
+                        <span contenteditable="true" class="editable-line"></span>
+                    </div>
+                    <div class="meta-field">
+                        <label>Date:</label>
+                        <span contenteditable="true" class="editable-line"></span>
+                    </div>
                 </div>
-                <div class="answer-space"></div>
-            </div>
-            
-            <div class="problem" id="problem-3">
-                <div>
-                    <span class="problem-number">3.</span>
-                    <span contenteditable="true" class="editable">Simplify the expression: 49 - 26</span>
+                <div class="worksheet-instructions" contenteditable="true" data-placeholder="Type instructions for the student here..."></div>
+                <div id="problems-list"></div>
+                <div class="problem-inserter">
+                    <div class="inserter-line"></div>
+                    <button class="inserter-btn" title="Add a new problem here">+</button>
+                    <div class="inserter-line"></div>
                 </div>
-                <div class="answer-space"></div>
-            </div>
-            
-            <div class="divider" id="divider"></div>
-            
-            <div class="exam-section" id="exam-section">
-                <h2>Exam Format</h2>
-                <p contenteditable="true" class="editable">MASOC Prints</p>
-                <p contenteditable="true" class="editable">Share it Away</p>
             </div>
         </div>
-    </div>
+    </main>
+
+    <!-- Template (No Changes) -->
+    <template id="problem-template">
+        <div class="problem" draggable="true">
+            <i class="fas fa-grip-vertical drag-handle"></i>
+            <div class="problem-body">
+                <div class="problem-content">
+                    <span class="problem-number">1.</span>
+                    <div contenteditable="true" class="editable" data-placeholder="Enter problem text..."></div>
+                </div>
+                <div class="answer-space"></div>
+                <div class="answer-key-content" contenteditable="true" data-placeholder="Enter the correct answer here..."></div>
+            </div>
+            <button class="delete-problem-btn" title="Delete problem">×</button>
+        </div>
+    </template>
 
     <script src="printable.js"></script>
 </body>

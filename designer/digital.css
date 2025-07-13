@@ -21,10 +21,56 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: var(--font-family); background-color: var(--bg-main); color: var(--text-dark); height: 100vh; overflow: hidden; }
 .app-layout { display: grid; grid-template-columns: 280px 1fr 320px; height: 100vh; }
-.sidebar-left { background: var(--bg-sidebar); padding: 1.5rem; border-right: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 2.5rem; }
-.logo { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;}
-.logo i { font-size: 1.75rem; color: var(--primary); background: var(--primary-light); padding: 0.5rem; padding: 0.5rem;}
-.logo h1 { font-size: 1.5rem; font-weight: 700; background: linear-gradient(to right, var(--primary), #3246b6); -webkit-background-clip: text; background-clip: text; color: transparent;}
+.sidebar-left { background: var(--bg-sidebar); padding: 1.5rem; border-right: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 2rem; }
+
+/* === NEW AND UPDATED STYLES FOR SIDEBAR HEADER === */
+.sidebar-header {
+    margin-bottom: 0.5rem; /* Adjust spacing to tool section */
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.back-btn:hover {
+    color: var(--primary);
+}
+
+.back-btn i {
+    font-size: 0.8rem;
+}
+
+.logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem;
+}
+
+.logo i { 
+    font-size: 1.75rem; 
+    color: var(--primary); 
+    background: var(--primary-light); 
+    padding: 0.5rem;
+    border-radius: 8px; /* Added for a softer look */
+}
+
+.logo h1 { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    background: linear-gradient(to right, var(--primary), #3246b6); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent;
+}
+
+
 .tool-section h3 { font-size: 0.9rem; font-weight: 500; color: var(--text-light); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
 .tool-item { display: flex; align-items: center; gap: 1rem; padding: 0.8rem; border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 0.75rem; cursor: grab; background: white; transition: var(--transition); }
 .tool-item:hover { border-color: var(--primary); background: var(--primary-light); color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow); }
@@ -40,6 +86,10 @@ body { font-family: var(--font-family); background-color: var(--bg-main); color:
 .action-btn:hover { background: var(--bg-main); }
 .action-btn.primary { background: var(--primary); color: white; border-color: var(--primary); }
 .action-btn.primary:hover { background-color: darkslateblue; }
+
+a {
+    text-decoration: none;
+}
 
 .canvas-area {
     position: relative;
@@ -73,9 +123,7 @@ body { font-family: var(--font-family); background-color: var(--bg-main); color:
     transition: all 0.2s ease-in-out, border-color 0.15s ease-out;
 }
 
-/* === THE FIX IS HERE === */
-/* Apply the 'selected' style ONLY when the element is NOT also a drop hint target.
-   This prevents the purple and green borders from appearing at the same time. */
+/* Apply the 'selected' style ONLY when the element is NOT also a drop hint target. */
 .canvas-element.selected:not(.drop-hint-above):not(.drop-hint-below) {
     border-color: var(--primary); /* This colors the pre-allocated 5px borders */
     box-shadow: var(--shadow-lg);
@@ -88,13 +136,13 @@ body { font-family: var(--font-family); background-color: var(--bg-main); color:
     border-color: var(--border-color) !important; /* Use !important to override selection */
 }
 
-/* Hint for dropping ABOVE this element (used only for the first item in the list) */
+/* Hint for dropping ABOVE this element */
 .drop-hint-above {
     border-top-color: var(--secondary);
     box-shadow: 0 -5px 15px -5px rgba(16, 185, 129, 0.5);
 }
 
-/* Hint for dropping BELOW this element (used for all other cases) */
+/* Hint for dropping BELOW this element */
 .drop-hint-below {
     border-bottom-color: var(--secondary);
     box-shadow: 0 5px 15px -5px rgba(16, 185, 129, 0.5);
